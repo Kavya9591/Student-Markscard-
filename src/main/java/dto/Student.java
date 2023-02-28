@@ -5,6 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Lob;
+import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 
 import lombok.Data;
@@ -25,4 +26,8 @@ public class Student {
 	int standard;
 	@Lob
 	byte[] picture;
+	
+	@OneToMany
+	MarksCard card;
+	
 }

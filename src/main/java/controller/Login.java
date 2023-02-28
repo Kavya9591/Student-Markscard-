@@ -35,8 +35,9 @@ public class Login extends HttpServlet {
 				dispatcher.include(req, resp);
 			} else {
 				if (student.getPassword().equals(password)) {
+					req.getSession().setAttribute("student", student);
 					resp.getWriter().print("<h1>Student Login Success</h1>");
-					req.getRequestDispatcher("StudentHome.jsp").include(req, resp);
+					req.getRequestDispatcher("StudentHome.html").include(req, resp);
 				} else {
 					resp.getWriter().print("<h1>Incorrect Password</h1>");
 					dispatcher.include(req, resp);
@@ -45,7 +46,7 @@ public class Login extends HttpServlet {
 		} else {
 			if (teacher.getPassword().equals(password)) {
 				resp.getWriter().print("<h1>Teacher Login Success</h1>");
-				req.getRequestDispatcher("TeacherHome.jsp").include(req, resp);
+				req.getRequestDispatcher("TeacherHome.html").include(req, resp);
 			} else {
 				resp.getWriter().print("<h1>Incorrect Password</h1>");
 				dispatcher.include(req, resp);
