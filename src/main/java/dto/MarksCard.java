@@ -22,4 +22,5 @@ public class MarksCard {
 	int socialscience;
 	double percentage;
 	String result;
+	boolean status;
 }

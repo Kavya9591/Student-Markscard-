@@ -43,4 +43,10 @@ public class StudentDao {
 			return list.get(0);
 		}
 	}
+
+	public void update(Student student) {
+		transaction.begin();
+		manager.merge(student);
+		transaction.commit();
+	}
 }
