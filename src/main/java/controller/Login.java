@@ -45,6 +45,7 @@ public class Login extends HttpServlet {
 			}
 		} else {
 			if (teacher.getPassword().equals(password)) {
+				req.getSession().setAttribute("teacher", teacher);
 				resp.getWriter().print("<h1>Teacher Login Success</h1>");
 				req.getRequestDispatcher("TeacherHome.html").include(req, resp);
 			} else {

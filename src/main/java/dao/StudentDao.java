@@ -49,4 +49,10 @@ public class StudentDao {
 		manager.merge(student);
 		transaction.commit();
 	}
+	
+	public List<Student> fetchAll()
+	{
+		return manager.createQuery("select x from Student x").getResultList();
+	}
+	
 }
