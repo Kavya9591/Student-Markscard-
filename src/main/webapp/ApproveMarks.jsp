@@ -1,4 +1,4 @@
-<%@page import="dto.MarksCard"%>
++<%@page import="dto.MarksCard"%>
 <%@page import="dto.Student"%>
 <%@page import="java.util.List"%>
 <%@page import="dao.StudentDao"%>
@@ -49,8 +49,8 @@ List<MarksCard> list1=student.getCards();
 <th><%=card.getPercentage() %></th>
 <th><%=card.getResult() %></th>
 <th><%=card.isStatus() %></th>
-<th><button>Change Status</button></th>
-<th><button>Edit</button></th>
+<th><a href="changeStatus?id=<%=card.getId()%>"><button>Change Status</button></a></th>
+<th><a href="Edit.jsp?reg=<%=student.getRegno()%>&id=<%=card.getId()%>"><button>Edit</button></a></th>
 </tr>
 <%} %>
 <%} %>
