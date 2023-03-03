@@ -45,7 +45,7 @@ public class SaveMarks extends HttpServlet {
 			} else if (percenatge < 85) {
 				result = "First Class";
 			} else {
-				result = "distinction";
+				result = "Distinction";
 			}
 			}
 			MarksCard card = new MarksCard();
