@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import dao.MarksCardDao;
 import dao.StudentDao;
 import dto.MarksCard;
 import dto.Student;
@@ -32,21 +33,19 @@ public class SaveMarks extends HttpServlet {
 			req.getRequestDispatcher("AddMarks.jsp?standard=" + standard).include(req, resp);
 		} else {
 			percenatge = (maths + english + hindi + kannada + science + social) / 6;
-			if(maths < 35 || science < 35 || english < 35 || kannada < 35 || hindi <35  || social < 35)
-			{
-				result="Fail";
-			}
-			else {
-			
-			if (percenatge < 35) {
+			if (maths < 35 || science < 35 || english < 35 || kannada < 35 || hindi < 35 || social < 35) {
 				result = "Fail";
-			} else if (percenatge < 60) {
-				result = "Second Class";
-			} else if (percenatge < 85) {
-				result = "First Class";
 			} else {
-				result = "Distinction";
-			}
+
+				if (percenatge < 35) {
+					result = "Fail";
+				} else if (percenatge < 60) {
+					result = "Second Class";
+				} else if (percenatge < 85) {
+					result = "First Class";
+				} else {
+					result = "Distinction";
+				}
 			}
 			MarksCard card = new MarksCard();
 			card.setEnglish(english);
@@ -60,6 +59,9 @@ public class SaveMarks extends HttpServlet {
 			card.setResult(result);
 
 			Student student = (Student) req.getSession().getAttribute("student");
+
+			MarksCardDao cardDao = new MarksCardDao();
+			cardDao.save(card);
 
 			List<MarksCard> list = student.getCards();
 			list.add(card);

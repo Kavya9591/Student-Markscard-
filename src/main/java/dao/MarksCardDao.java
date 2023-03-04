@@ -24,4 +24,10 @@ public class MarksCardDao
 		manager.merge(card);
 		transaction.commit();
 	}
+
+	public void save(MarksCard card) {
+		transaction.begin();
+		manager.persist(card);
+		transaction.commit();
+	}
 }

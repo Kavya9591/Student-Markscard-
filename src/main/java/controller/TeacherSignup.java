@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import dao.StudentDao;
 import dao.TeacherDao;
 import dto.Teacher;
 
@@ -16,9 +17,10 @@ public class TeacherSignup extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		TeacherDao dao = new TeacherDao();
+		StudentDao dao2=new StudentDao();
 		String email = req.getParameter("email");
 		long mobile=Long.parseLong(req.getParameter("mob"));
-		if (dao.find(email) == null && dao.find(mobile)==null) {
+		if (dao.find(email) == null && dao.find(mobile)==null && dao2.find(email) == null && dao2.find(mobile)==null) {
 			Teacher teacher = new Teacher();
 			teacher.setName(req.getParameter("name"));
 			teacher.setMobile(mobile);

@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.Part;
 
 import dao.StudentDao;
+import dao.TeacherDao;
 import dto.Student;
 
 @WebServlet("/studentsignup")
@@ -23,7 +24,8 @@ public class StudentSignup extends HttpServlet {
 		long mobile=Long.parseLong(req.getParameter("mob"));
 		
 		StudentDao dao=new StudentDao();
-		if(dao.find(email)==null && dao.find(mobile)==null)
+		TeacherDao dao2=new TeacherDao();
+		if(dao.find(email) == null && dao.find(mobile)==null && dao2.find(email) == null && dao2.find(mobile)==null)
 		{
 		Student student=new Student();
 		student.setName(req.getParameter("name"));

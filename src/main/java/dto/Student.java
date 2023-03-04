@@ -2,7 +2,6 @@ package dto;
 
 import java.util.List;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -29,8 +28,8 @@ public class Student {
 	int standard;
 	@Lob
 	byte[] picture;
-	
-	@OneToMany(cascade = CascadeType.ALL)
+
+	@OneToMany
 	List<MarksCard> cards;
-	
+
 }

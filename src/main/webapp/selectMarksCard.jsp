@@ -10,6 +10,10 @@
 <title>Select MarksCard</title>
 </head>
 <body>
+<%if(session.getAttribute("student")==null){
+	response.getWriter().print("<h1>Session Expired Login Again</h1>");
+	request.getRequestDispatcher("Login.html").include(request, response);
+}%>
 <%
 Student student=(Student)session.getAttribute("student");
 List<MarksCard> list=student.getCards();
@@ -25,6 +29,7 @@ List<MarksCard> list=student.getCards();
 <%} %>
 </select><br><br>
 <button>submit</button>
-</form>
+</form><br><br>
+	<a href="StudentHome.html"><button>Home</button></a>
 </body>
 </html>

@@ -5,14 +5,14 @@
 <title>Login</title>
 </head>
 <body>
-	<h1 style="color: red">Welcome to Student MarksCard Management</h1>
 	<br>
 	<form action="login" method="post">
+		<h1>Welcome to Student MarksCard Management</h1>
 		<table>
 			<tr>
 				<td>Register Number / Employee Id:</td>
-				<td><input type="number" name="regemp"
-					placeholder="Enter your Id" required="required">
+				<td><input type="tel" name="regemp"
+					placeholder="Enter your Id" pattern="[0-9]{6}" required="required">
 				</td>
 			</tr>
 			<tr>
@@ -35,9 +35,10 @@
 				</td>
 			</tr>
 		</table>
+		<br>
+		<a href="Signup.html">New? Click Here to Create an Account</a>
 	</form>
 	<br>
-	<a href="Signup.html">New? Click Here to Create an Account</a>
-
+	
 </body>
 </html>
